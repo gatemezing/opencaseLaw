@@ -44,7 +44,28 @@ juri:DocJuridique a rdfs:Class , owl:Class ;
 	.
 
 
-## data properties here ##
+
+## Object properties here ##
+#############################
+
+juri:typeJuridiction a rdf:Property, owl:ObjectProperty;
+	rdfs:label "Type juridiction"@fr ;
+    rdfs:comment "Lien vers le concept SKOS representant le type de la juridiction"@fr ;
+	rdfs:domain juri:DocJuridique ;
+	rdfs:range skos:concept ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+
+juri:ressort a rdf:Property, owl:ObjectProperty;
+	rdfs:label "Ressort"@fr ;
+    rdfs:comment "Lien vers le concept SKOS representant le lieu ou ville de la juridiction"@fr ;
+	rdfs:domain juri:DocJuridique ;
+	rdfs:range skos:concept ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+## Data properties here ##
 #############################
 
 juri:decisionObjectCode a rdf:Property, owl:DatatypeProperty;
