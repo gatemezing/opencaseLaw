@@ -1,0 +1,67 @@
+@prefix juri: <http://data.openlaw.fr/def/juri#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix osp: <http://data.lirmm.fr/ontologies/osp#> .
+@prefix dct: <http://purl.org/dc/terms/>.
+
+
+# metadata info for the ontology here ##
+########################################
+
+
+<http://data.openlaw.fr/def/juri>
+    a owl:Ontology, voaf:Vocabulary;
+    rdfs:label "Ontologie sur l'eclisation des documents juridiques"@fr;
+    dct:creator [foaf:name "Ghislain Atemezing"; schema:affiliation [foaf:homepage <http://www.mondeca.com>; foaf:name "Mondeca"]
+       ];
+    dct:description "Vocabulaire pour mieux representer les documents juridiques et juridictions pour le challenge open case law"@fr ;
+                 
+    dct:issued "2016-11-24"^^xsd:date;
+    #dct:modified "2016-05-20"^^xsd:date;
+    #dct:modified "2016-06-01"^^xsd:date;
+    #dct:modified "2016-06-29"^^xsd:date;
+    vann:preferredNamespacePrefix "juri" ;
+    owl:versionInfo "0.1" ;
+    .
+
+## classes here ###
+###################
+
+juri:DocJuridique a rdfs:Class , owl:Class ; 
+	rdfs:label "Document juridique"@fr ;
+	rdfs:subClassOf foaf:Document; 
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+
+## data properties here ##
+#############################
+
+juri:decisionObjectCode a rdf:Property, owl:DatatypeProperty;
+	rdfs:label "Code object de la decision chez INPI"@fr ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+juri:pole a rdf:Property, owl:DatatypeProperty;
+	rdfs:label "pole d'un tribunal"@fr ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+##TODO: The range should point to a concept defined in the taxonomy of INPI 
+juri:inpiClassification a rdf:Property, owl:DatatypeProperty;
+	rdfs:label "classification inpi"@fr ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+
+## axioms
+
+osp:Tribunal a owl:Class.
+juri:DocJuridique owl:differentFrom osp:Tribunal .
