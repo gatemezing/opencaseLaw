@@ -43,6 +43,11 @@ juri:DocJuridique a rdfs:Class , owl:Class ;
 	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
 	.
 
+juri:Citation a a rdfs:Class , owl:Class ; 
+	rdfs:label "Citation"@fr ;
+        rdfs:comment "Citation de loi dans un document"@fr ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
 
 
 ## Object properties here ##
@@ -65,6 +70,8 @@ juri:ressort a rdf:Property, owl:ObjectProperty;
 	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
 	.
 
+
+#############################
 ## Data properties here ##
 #############################
 
@@ -83,9 +90,30 @@ juri:pole a rdf:Property, owl:DatatypeProperty;
 ##TODO: The range should point to a concept defined in the taxonomy of INPI 
 juri:inpiClassification a rdf:Property, owl:DatatypeProperty;
 	rdfs:label "classification inpi"@fr ;
+        rdfs:Domain juri:DocJuridique;
 	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
 	.
 
+juri:typeLabel a rdf:Property, owl:DatatypeProperty;
+	rdfs:label "Type label"@fr ;
+        rdfs:domain juri:Citation ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+juri:articleCode a rdf:Property, owl:DatatypeProperty;
+	rdfs:label "Code article"@fr ;
+        rdfs:domain juri:Citation ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
+
+juri:nrg rdf:Property, owl:DatatypeProperty;
+	rdfs:label "NRG"@fr ;
+        rdfs:domain juri:DocJuridique ;
+	rdfs:range rdfs:Literal ;
+	rdfs:isDefinedBy <http://data.openlaw.fr/def/juri> ;
+	.
 
 ## axioms
 
