@@ -1,1 +1,1 @@
-# open case Law Linked Data Challenge
+# Open Case Law Linked Data Challenge
